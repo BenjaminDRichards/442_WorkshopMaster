@@ -3,21 +3,23 @@ class AI{
   // Bread either avoids or follows for the Aardvark(s)
   float xPos;
   float yPos;
-  PImage img;
+  Bread theBread;
   int speed;
   float cSize;
   float cHSize;
   int cState;
   
   AI(String imgName, int x, int y, int speed){
-    this.img = loadImage(imgName);
+    this.theBread = new Bread(imgName);
     this.xPos = x;
     this.yPos = y;
     this.speed = speed;
-    image(this.img,x,y);
     
     this.cSize = speed * 15.0;
     this.cHSize = this.cSize * 0.5;
+    
+    this.theBread.draw(x,y, cSize, cHSize);
+
     
     if (random(0, 1) < 0.5) {
       this.cState = 0;
@@ -52,7 +54,7 @@ class AI{
       }
     }
     
-    image(this.img, this.xPos - cHSize, this.yPos - cHSize, cSize, cSize);
+    theBread.draw(this.xPos, this.yPos, this.cSize, this.cHSize);
   }
   
   void follow(PVector dir) {

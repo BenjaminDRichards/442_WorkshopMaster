@@ -19,7 +19,7 @@ class PParticlePoint
     mFriction = 0.8;
     
     rectMode(CENTER);
-    fill(0);
+    fill(222);
   }
   
   void setLimits(float iMaxVel, float iMaxAccel, float iFriction)
